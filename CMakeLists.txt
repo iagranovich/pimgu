@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.14)
 project(pimgu)
 
-add_executable(main main.cpp my_add.cpp)
+include_directories(include)
+
+add_executable(main main.cpp src/my_add.cpp)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -12,5 +14,5 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
-add_executable(tests my_add.cpp test_add.cpp)
+add_executable(tests src/my_add.cpp test_add.cpp)
 target_link_libraries(tests gtest_main)
